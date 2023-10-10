@@ -1,5 +1,5 @@
 package ticTacToe.models;
 
-public enum GameStatus {
+public enum GameState {
     IN_PROGRESS, DRAW, COMPLETED
 }

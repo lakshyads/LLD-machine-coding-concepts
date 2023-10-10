@@ -1,5 +1,5 @@
 package ticTacToe.models;
 
-public enum CellStatus {
+public enum CellState {
     FILLED, EMPTY
 }
