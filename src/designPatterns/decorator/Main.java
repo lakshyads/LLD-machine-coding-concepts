@@ -3,9 +3,9 @@ package designPatterns.decorator;
 public class Main {
     public static void main(String[] args) {
         Dessert dessert = new ChocoScoop(
-                            new VanillaScoop(
-                                    new ChocoSyrup(
-                                        new OrangeCone())));
+                new VanillaScoop(
+                        new ChocoSyrup(
+                                new OrangeCone())));
 
         System.out.println(dessert.getCost());
         System.out.println(dessert.getDescription());
