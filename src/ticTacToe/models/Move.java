@@ -1,6 +1,4 @@
 package ticTacToe.models;
 
-public class Move {
-    Cell cell;
-    Player player;
+public record Move(Cell cell) {
 }

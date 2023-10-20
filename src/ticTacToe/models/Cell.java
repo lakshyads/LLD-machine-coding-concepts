@@ -37,7 +37,7 @@ public class Cell {
         this.player = player;
     }
 
-    public CellState getCellStatus() {
+    public CellState getCellState() {
         return cellState;
     }
 

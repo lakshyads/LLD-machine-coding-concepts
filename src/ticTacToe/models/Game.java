@@ -4,6 +4,7 @@ import ticTacToe.exception.DuplicatePlayerSymbolException;
 import ticTacToe.exception.InvalidBoardSizeException;
 import ticTacToe.exception.InvalidBotCountException;
 import ticTacToe.exception.InvalidPlayerCountException;
+import ticTacToe.service.botPlayingStrategy.IBotPlayingStrategy;
 import ticTacToe.service.winningStrategy.IWinningStrategy;
 
 import java.util.ArrayList;
@@ -15,10 +16,12 @@ public class Game {
     private final List<Player> players;
     private final List<Move> moves;
     private final List<Board> boardStates;
-    private final GameState gameState;
-    IWinningStrategy winningStrategy;
+    private final IWinningStrategy winningStrategy;
+    private GameState gameState;
     private Player currentPlayer;
     private Player winner;
+
+    private IBotPlayingStrategy botPlayingStrategy;
 
     private Game(Board board, List<Player> players, IWinningStrategy winningStrategy) {
         this.board = board;
@@ -27,6 +30,11 @@ public class Game {
         this.moves = new ArrayList<>();
         this.boardStates = new ArrayList<>();
         this.winningStrategy = winningStrategy;
+    }
+
+    private Game(Board board, List<Player> players, IWinningStrategy winningStrategy, IBotPlayingStrategy botPlayingStrategy) {
+        this(board, players, winningStrategy);
+        this.botPlayingStrategy = botPlayingStrategy;
     }
 
     public static Builder builder() {
@@ -61,14 +69,28 @@ public class Game {
         return winner;
     }
 
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
     public GameState getGameState() {
         return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    public IBotPlayingStrategy getBotPlayingStrategy() {
+        return botPlayingStrategy;
     }
 
     public static class Builder {
         private int boardSize;
         private List<Player> players;
         private IWinningStrategy winningStrategy;
+
+        private IBotPlayingStrategy botPlayingStrategy;
 
         public Builder size(int boardSize) {
             this.boardSize = boardSize;
@@ -85,10 +107,15 @@ public class Game {
             return this;
         }
 
+        public Builder botPlayingStrategy(IBotPlayingStrategy botPlayingStrategy) {
+            this.botPlayingStrategy = botPlayingStrategy;
+            return this;
+        }
+
         private void validateBotCount() throws InvalidBotCountException {
             int botCount = 0;
             for (Player player : players) {
-                if (player.getType() == PlayerType.BOT) botCount++;
+                if (player.getType().equals(PlayerType.BOT)) botCount++;
             }
             if (botCount > 1)
                 throw new InvalidBotCountException("Bot count cannot be more than 1, currently: " + botCount);
@@ -122,7 +149,7 @@ public class Game {
 
         public Game build() throws InvalidBotCountException, InvalidPlayerCountException, InvalidBoardSizeException, DuplicatePlayerSymbolException {
             validateGame();
-            return new Game(new Board(boardSize), players, winningStrategy);
+            return new Game(new Board(boardSize), players, winningStrategy, botPlayingStrategy);
         }
 
     }

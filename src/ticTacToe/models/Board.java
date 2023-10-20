@@ -20,6 +20,12 @@ public class Board {
         }
     }
 
+    // copy constructor
+    public Board(Board board) {
+        this.boardSize = board.getBoardSize();
+        this.cells = board.getCells();
+    }
+
     public void display() {
         for (var row :
                 cells) {
