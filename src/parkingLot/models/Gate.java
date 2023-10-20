@@ -7,6 +7,7 @@ public class Gate extends BaseModel {
     private String operator; // TODO: convert to Operator object
     private GateType gateType;
     private int gateNumber;
+    private int floorNumber;
     private GateStatus gateStatus;
 
     public String getOperator() {
@@ -39,5 +40,13 @@ public class Gate extends BaseModel {
 
     public void setGateStatus(GateStatus gateStatus) {
         this.gateStatus = gateStatus;
+    }
+
+    public int getFloorNumber() {
+        return floorNumber;
+    }
+
+    public void setFloorNumber(int floorNumber) {
+        this.floorNumber = floorNumber;
     }
 }

@@ -1,8 +1,8 @@
 package parkingLot.repository;
 
 import org.jetbrains.annotations.NotNull;
+import parkingLot.exception.TicketNotFoundException;
 import parkingLot.models.Ticket;
-import ticTacToe.exception.TicketNotFoundException;
 
 import java.util.HashMap;
 

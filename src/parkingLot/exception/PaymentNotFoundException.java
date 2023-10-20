@@ -1,4 +1,4 @@
-package ticTacToe.exception;
+package parkingLot.exception;
 
 public class PaymentNotFoundException extends Exception {
     public PaymentNotFoundException() {

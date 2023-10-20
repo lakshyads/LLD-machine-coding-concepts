@@ -1,4 +1,4 @@
-package ticTacToe.exception;
+package parkingLot.exception;
 
 public class VehicleNotFoundException extends Exception {
     public VehicleNotFoundException() {
