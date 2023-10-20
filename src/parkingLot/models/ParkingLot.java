@@ -7,7 +7,7 @@ import parkingLot.service.strategy.slotAllocationStrategy.ISlotAllocationStrateg
 
 import java.util.List;
 
-public class ParkingLot {
+public class ParkingLot extends BaseModel {
     private String name;
     private String address;
     private List<ParkingFloor> parkingFloors;
@@ -16,4 +16,31 @@ public class ParkingLot {
     private ISlotAllocationStrategy slotAllocationStrategy;
     private IBillCalculationStrategy billCalculationStrategy;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public List<ParkingFloor> getParkingFloors() {
+        return parkingFloors;
+    }
+
+    public List<VehicleType> getSupportedVehicleTypes() {
+        return supportedVehicleTypes;
+    }
+
+    public Status getParkingLotStatus() {
+        return parkingLotStatus;
+    }
+
+    public ISlotAllocationStrategy getSlotAllocationStrategy() {
+        return slotAllocationStrategy;
+    }
+
+    public IBillCalculationStrategy getBillCalculationStrategy() {
+        return billCalculationStrategy;
+    }
 }
