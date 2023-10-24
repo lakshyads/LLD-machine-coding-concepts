@@ -10,6 +10,10 @@ public class ParkingFloor extends BaseModel {
     private List<Gate> gates;
     private Status parkingFloorStatus;
 
+    public ParkingFloor(int id) {
+        super(id);
+    }
+
     public int getFloorNumber() {
         return floorNumber;
     }

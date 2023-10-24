@@ -8,6 +8,10 @@ public class Bill extends BaseModel {
     private Ticket ticket;
     private Gate exitGate;
 
+    public Bill(int id) {
+        super(id);
+    }
+
     public LocalDateTime getExitTime() {
         return exitTime;
     }

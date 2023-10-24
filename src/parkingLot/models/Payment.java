@@ -10,6 +10,10 @@ public class Payment extends BaseModel {
     private PaymentStatus paymentStatus;
     private Bill bill;
 
+    public Payment(int id) {
+        super(id);
+    }
+
     public int getAmount() {
         return amount;
     }

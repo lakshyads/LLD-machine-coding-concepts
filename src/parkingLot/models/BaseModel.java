@@ -3,12 +3,17 @@ package parkingLot.models;
 import java.time.LocalDateTime;
 
 public abstract class BaseModel {
-    private int id;
     // Auditing columns
-    private LocalDateTime createdAt;
+    private final LocalDateTime createdAt;
+    private int id;
     private LocalDateTime updatedAt;
     private String createdBy;
     private String updatedBy;
+
+    public BaseModel(int id) {
+        this.id = id;
+        this.createdAt = LocalDateTime.now();
+    }
 
     public int getId() {
         return id;
@@ -22,9 +27,6 @@ public abstract class BaseModel {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;

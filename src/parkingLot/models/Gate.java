@@ -10,6 +10,10 @@ public class Gate extends BaseModel {
     private int floorNumber;
     private GateStatus gateStatus;
 
+    public Gate(int id) {
+        super(id);
+    }
+
     public String getOperator() {
         return operator;
     }

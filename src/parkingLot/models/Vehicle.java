@@ -3,10 +3,19 @@ package parkingLot.models;
 import parkingLot.models.constants.VehicleType;
 
 public class Vehicle extends BaseModel {
+    private static int id = 0;
     private String number;
     private String name;
     private String color;
     private VehicleType vehicleType;
+
+    public Vehicle(String number, String name, String color, VehicleType vehicleType) {
+        super(++id);
+        this.number = number;
+        this.name = name;
+        this.color = color;
+        this.vehicleType = vehicleType;
+    }
 
     public String getNumber() {
         return number;

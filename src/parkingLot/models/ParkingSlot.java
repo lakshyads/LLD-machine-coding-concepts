@@ -9,6 +9,10 @@ public class ParkingSlot extends BaseModel {
     private Vehicle vehicle;
     private ParkingSlotStatus parkingSlotStatus;
 
+    public ParkingSlot(int id) {
+        super(id);
+    }
+
     public int getSlotNumber() {
         return slotNumber;
     }
